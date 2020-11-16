@@ -1,0 +1,7 @@
+{
+  "name": "HotelFloresta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
