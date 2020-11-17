@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+     </ion-buttons>
+    <ion-title>Inicio de sesion </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-icon class="centerIco" name="business-outline"></ion-icon>
+  
+
+  <ion-item class="center">
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item class="center">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  
+  
+  <ion-button class="centerBtn" shape="round" fill="outline" [routerLink]="[urlAdmin]" >Ingresar-admin</ion-button>
+  <ion-button class="centerBtn" shape="round" fill="outline" [routerLink]="[urlRecep]" >Ingresar-recep</ion-button>
+  <ion-button class="centerBtn" shape="round" fill="outline" [routerLink]="[urlClient]" >Ingresar-cliente</ion-button>
+
+
+
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let label of labels; let i = index;" 
+                (click)="onClick( i+1 )"
+                detail>  
+      <ion-label >{{label}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>
