@@ -57,11 +57,10 @@
     <h3 style="margin: 5%;">Clientes registrados</h3>
     <ion-item *ngFor="let cliente of clientes">
       <ion-label >
-        {{cliente.identificacion}} - {{cliente.nombre}}
+        {{cliente.identificacion}} - {{cliente.nombre}} - <ion-button color="dark" (click)="traerClienteSeleccionado(cliente.identificacion)">Ver</ion-button>
       </ion-label>
     </ion-item>
     
   </ion-list>
-  
 
 </ion-content>
