@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Observable, of, observable } from 'rxjs';
@@ -10,36 +10,35 @@ import { Observable, of, observable } from 'rxjs';
 })
 export class ClienteServiceService {
 
-  constructor( private http: HttpClient) { }
+  baseUrl: string;
+  constructor( 
+    private http: HttpClient
+    ) { }
 
-  get(){
-    return this.http.get('https://localhost:5001/api/cliente');
-  }
+    get(): Observable<Cliente[]> {
+      return this.http.get<Cliente[]>('https://localhost:5001/api/Cliente')
+    }
 
-  post(cliente: Cliente):Observable<Cliente> {
-    console.log(cliente);
-    return this.http.post<Cliente>('https://localhost:5001/api/cliente', cliente);
-  }
+  /** GET Cliente by identificacion. Will 404 if id not found */
+    getId(id: string): Observable<Cliente> {
+      const url = `${'https://localhost:5001/api/Cliente'}/${id}`;
+      return this.http.get<Cliente>(url)
+    }
+  
+  /** POST: post the hero from the server */
+    post(Cliente: Cliente): Observable<Cliente> {
+      return this.http.post<Cliente>('https://localhost:5001/api/Cliente', Cliente)
+    }
 
-  add(dataToSend){
-    var url ="https://localhost:5001/api/cliente";
-    return this.http.post(url,dataToSend,
-      {headers:new HttpHeaders(
-        {"content-Type":"application/json"}
-      )});
+  /** DELETE: delete the hero from the server */
+    delete(cliente: Cliente | string): Observable<string> {
+      const id = typeof cliente === 'string' ? cliente : cliente.identificacion;
+      return this.http.delete<string>('https://localhost:5001/api/Cliente/' + id)
+    }
 
-  }
-
-
-  postw(cliente:Cliente){
-    
-    this.http.post("https://localhost:5001/api/cliente", cliente)
-      .subscribe(data => {
-        console.log('usuario registrado con exito')
-        console.log(data['_body']);
-       }, error => {
-        console.log(error);
-      });
-  }
-
+  /** PUT: update the profesor on the server */
+    put(cliente: Cliente): Observable<any> {
+      const url = `${'https://localhost:5001/api/Cliente'}/${cliente.identificacion}`;
+    return this.http.put(url, cliente);
+    }
 }
