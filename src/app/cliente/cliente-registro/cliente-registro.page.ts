@@ -25,13 +25,11 @@ export class ClienteRegistroPage implements OnInit {
 
   datosRetornadosDelServicio:any="";
 
-  constructor(private clienteService: ClienteServiceService,
-    private alertController: AlertController,
-    private navContrl:NavController
-    ) { }
+  constructor(
+    private clienteService: ClienteServiceService,
+    private alertController: AlertController) { }
 
   ngOnInit() {
-    
     this.cliente = new Cliente(); 
     this.traerClientes();
   }
@@ -50,80 +48,174 @@ export class ClienteRegistroPage implements OnInit {
     });
   }
 
-  template() {
+  template() {    
     this.cliente.identificacion = this._identificacion;
     this.cliente.nombre = this._nombre;
     this.cliente.correo = this._correo;
     this.cliente.direccion = this._direccion;
     this.cliente.edad = this._edad;
     this.cliente.password = this._password;
+    this.cliente.celular = this._celular;
     this.cliente.sexo = this._sexo;
     this.cliente.usuario = this._usuario;
     console.log(this.cliente);
-    this.clienteService.post(this.cliente).subscribe((datosRetornadosDelServicio)=>{
-      this.datosRetornadosDelServicio = JSON.stringify(datosRetornadosDelServicio);
+    this.clienteService.post(this.cliente).subscribe(p=>{
+      this.confirmacionAgregar();
+      this.traerClientes();
     });
   }
 
-  async VerCliente(idc:string) {
+  //alert que confirma el encuentro del cliente registrado
+  async presentAlert(clientec:Cliente) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'ALERT ELIMINAR',
+      subHeader: clientec.identificacion+' - '+clientec.nombre,
+      message: 'Cliente encontrado.',
+      buttons: [{
+        text: 'Eliminar?',
+        handler: () => {
+          this.delete(clientec.identificacion);
+          this.ngOnInit();
+        }
+      },'Cancelar'
+    ]
+    });
+    await alert.present();
+  }
+
+  //alert que confima el add
+  async confirmacionAgregar() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Mensaje',
+      message: 'Cliente Agregado con exito',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  //alert que confima la posible eliminacion
+  async confirmacionEliminar() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Mensaje',
+      message: 'Cliente Eliminado con exito',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  //metodo para eliminar
+  delete(identificacion: string) {
+    this.clienteService.delete(identificacion).subscribe(p => {
+      this.confirmacionEliminar();
+      console.log('CLIENTE: '+identificacion+' eliminado');
+    });
+    this.ngOnInit();
+  }
+
+
+
+  //de aqui para allá va el update en alerts
+
+  async presentAlertPrompt(clientex: Cliente) {
     
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Alert',
+      header: 'Prompt!',
       inputs: [
         {
-          name: 'name1',
+          name: 'Nombre',
           type: 'text',
-          placeholder: 'Placeholder 1'
-        }],
+          value: clientex.nombre,
+          placeholder: 'Nombre'
+        },
+        {
+          name: 'Edad',
+          type: 'number',
+          value: clientex.edad,
+          placeholder: 'edad'
+        },
+        {
+          name: 'Sexo',
+          type: 'text',
+          value: clientex.sexo,
+          placeholder: 'sexo'
+        },
+        {
+          name: 'Direccion',
+          type: 'text',
+          value: clientex.direccion,
+          placeholder: 'direccion'
+        },
+        {
+          name: 'Celular',
+          type: 'text',
+          value: clientex.celular,
+          placeholder: 'celular'
+        },
+        {
+          name: 'Correo',
+          type: 'text',
+          value: clientex.correo,
+          placeholder: 'correo'
+        },
+        {
+          name: 'Usuario',
+          type: 'text',
+          value: clientex.usuario,
+          placeholder: 'usuario'
+        },
+        {
+          name: 'Password',
+          type: 'text',
+          value: clientex.password,
+          placeholder: 'password'
+        },
+      ],
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel',
+          text: 'Cancelar',
+          role: 'cancelar',
           cssClass: 'secondary',
           handler: () => {
             console.log('Confirm Cancel');
           }
-        },
-        {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        },
-        {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
+        }, {
+          text: 'Confirmar',
+          handler: (data) => {
+            this.cliente.identificacion = clientex.identificacion;
+            this.cliente.nombre = data.Nombre;
+            this.cliente.correo = data.Correo;
+            this.cliente.direccion = data.Direccion;
+            this.cliente.edad = data.Edad;
+            this.cliente.password = data.Password;
+            this.cliente.sexo = data.Sexo;
+            this.cliente.celular = data.Celular;
+            this.cliente.usuario = data.Usuario;
+            console.log(this.cliente);
+            this.update();
+            this.confirmaActualizacion();
+            this.ngOnInit();
           }
         }
       ]
     });
-
     await alert.present();
   }
 
-  async presentAlert(clientec:Cliente) {
+  update(){
+    this.clienteService.put(this.cliente).subscribe(p => {});
+  }
+
+  async confirmaActualizacion() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: clientec.nombre,
-      subHeader: clientec.identificacion,
-      message: 'Cliente encontrado. pRUEBA PARA ELIMINAR',
-      buttons: [{
-        text: 'ELIMINAR?',
-        handler: () => {
-          this.delete(clientec.identificacion);
-        }
-      }]
+      header: 'Mensaje',
+      message: 'Cliente Acualizado con exito',
+      buttons: ['OK']
     });
-
     await alert.present();
   }
-
-  delete(identificacion: string) {
-    this.clienteService.delete(identificacion).subscribe(p => {
-      console.log('CLIENTE: '+identificacion+' eliminado');
-    });
-  }
-
 }

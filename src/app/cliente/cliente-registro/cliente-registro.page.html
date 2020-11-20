@@ -31,7 +31,7 @@
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Celular</ion-label>
-        <ion-input type="number" name="telephone" [(ngModel)]="_celular" required></ion-input>
+        <ion-input type="text" name="telephone" [(ngModel)]="_celular" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Correo</ion-label>
@@ -57,7 +57,9 @@
     <h3 style="margin: 5%;">Clientes registrados</h3>
     <ion-item *ngFor="let cliente of clientes">
       <ion-label >
-        {{cliente.identificacion}} - {{cliente.nombre}} - <ion-button color="dark" (click)="traerClienteSeleccionado(cliente.identificacion)">Ver</ion-button>
+        {{cliente.identificacion}} - {{cliente.nombre}} - 
+        <ion-button color="dark" (click)="traerClienteSeleccionado(cliente.identificacion)">Ver</ion-button>
+        - <ion-button color="dark" (click)="presentAlertPrompt(cliente)">Update</ion-button>
       </ion-label>
     </ion-item>
     
