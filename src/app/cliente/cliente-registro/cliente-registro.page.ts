@@ -69,7 +69,7 @@ export class ClienteRegistroPage implements OnInit {
   async presentAlert(clientec:Cliente) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'ALERT ELIMINAR',
+      header: 'Mensaje',
       subHeader: clientec.identificacion+' - '+clientec.nombre,
       message: 'Cliente encontrado.',
       buttons: [{
