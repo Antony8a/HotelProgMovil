@@ -15,6 +15,6 @@ import { RecepcionistaPage } from './recepcionista.page';
     IonicModule,
     RecepcionistaPageRoutingModule
   ],
-  declarations: [RecepcionistaPage]
+  declarations: []
 })
 export class RecepcionistaPageModule {}

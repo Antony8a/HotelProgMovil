@@ -1,23 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
+<ion-content [fullscreen]="true" class="ion-padding">
+
+
+
+  <ion-toolbar class="colorsito">
+    <ion-buttons slot="start" style="background-color: transparent">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title >{{ folder }}</ion-title>
   </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
- 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Aqui va la informacion de inicio del hotel</p>
+
+  <div class="cont">
+
+  </div>
+
+  <ion-text>
+    <h1>Bienvenidos.</h1>
+    <p>Aplicativo del hotel la floresta de la ciudad de valledupar</p>
+  </ion-text>
+
+
+  <div class="separador">
+    <h3>Algunos servicios</h3>
+    <span class="line">
+      <ion-icon name="wifi-outline"></ion-icon>
+      <ion-icon name="car-sport-outline"></ion-icon>
+      <ion-icon name="fast-food-outline"></ion-icon>
+      <ion-icon name="bed-outline"></ion-icon>
+    </span>
+
+  </div>
+
+  <div class="separador2">
+    <h3>Habitaciones</h3>
+    
+    <span class="line">
+      <h5>Estas son algunas de las habitaciones que podemos encontrar en el hotel.</h5>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          
+          <ion-card mode="ios">
+            <img src="/assets/img/img_1.jpg">
+          </ion-card>
+
+        </ion-slide>
+        <ion-slide>
+          <ion-card mode="ios">
+            <img src="/assets/img/img_2.jpg">
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card mode="ios">
+            <img src="/assets/img/img_3.jpg">
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+      
+    </span>
+
+  </div>
+
+  <div class="separador3">
+    <h3>Informacion de contacto</h3>
+    <span class="line">
+      <ion-icon name="wifi-outline"></ion-icon>
+      <ion-icon name="car-sport-outline"></ion-icon>
+      <ion-icon name="fast-food-outline"></ion-icon>
+      <ion-icon name="bed-outline"></ion-icon>
+    </span>
+
   </div>
 
 </ion-content>
-

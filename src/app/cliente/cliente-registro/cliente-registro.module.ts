@@ -15,6 +15,6 @@ import { ClienteRegistroPage } from './cliente-registro.page';
     IonicModule,
     ClienteRegistroPageRoutingModule
   ],
-  declarations: [ClienteRegistroPage]
+  declarations: []
 })
 export class ClienteRegistroPageModule {}

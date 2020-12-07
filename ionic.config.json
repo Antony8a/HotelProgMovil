@@ -1,7 +1,8 @@
 {
   "name": "HotelFloresta",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

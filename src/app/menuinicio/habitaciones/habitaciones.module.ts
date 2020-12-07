@@ -15,6 +15,6 @@ import { HabitacionesPage } from './habitaciones.page';
     IonicModule,
     HabitacionesPageRoutingModule
   ],
-  declarations: [HabitacionesPage]
+  declarations: []
 })
 export class HabitacionesPageModule {}

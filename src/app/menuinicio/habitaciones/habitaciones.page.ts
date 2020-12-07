@@ -12,4 +12,5 @@ export class HabitacionesPage implements OnInit {
   ngOnInit() {
   }
 
+
 }

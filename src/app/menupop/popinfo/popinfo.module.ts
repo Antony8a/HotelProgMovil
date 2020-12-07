@@ -15,6 +15,6 @@ import { PopinfoPage } from './popinfo.page';
     IonicModule,
     PopinfoPageRoutingModule
   ],
-  declarations: [PopinfoPage]
+  declarations: []
 })
 export class PopinfoPageModule {}

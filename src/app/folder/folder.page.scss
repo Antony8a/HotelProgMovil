@@ -1,28 +1,121 @@
-ion-menu-button {
-  color: var(--ion-color-primary);
+*{
+  font-weight: 300;
 }
 
-#container {
-  text-align: center;
+.colorsito{
+  --background: transparent;
+}
+
+ion-content{
+  --background: #fafafa;
+}
+
+ion-toolbar{
+  --background: #fafafa;
+}
+
+ion-text{
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top:30%;
+  h1{
+    font-size: 42px;;
+    color: rgba(255, 255, 255, 0.767);
+  }
+  p{
+    font-size: 14px;
+    color: #ffffff8c;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.separador{
+  display: flex;
+  justify-content: center;
+  margin: 8px auto 10px;
+  font-size: 30px;
+  position: relative;
+  top: 90px;
+  color: #0D47A1;
+  .line{
+    position: absolute;
+    border-top: 2px solid #99b9f0;
+    width: 200px;
+    height: 2px;
+    top: 60px;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+.separador2{
+  display: flex;
+  justify-content: center;
+  margin: 8px auto 10px;
+  font-size: 30px;
+  position: relative;
+  top: 200px;
+  color: #0D47A1;
+  .line{
+    position: absolute;
+    border-top: 2px solid #99b9f0;
+    width: 200px;
+    height: 2px;
+    top: 60px;
+  }
+  h5{
+    font-size: 15px;
+    font-style: oblique;
+    text-align: center;
+  }
 }
 
-#container a {
-  text-decoration: none;
+.separador3{
+  display: flex;
+  justify-content: center;
+  margin: 8px auto 10px;
+  font-size: 30px;
+  position: relative;
+  top: 600px;
+  color: #0D47A1;
+  .line{
+    position: absolute;
+    border-top: 2px solid #99b9f0;
+    width: 200px;
+    height: 2px;
+    top: 60px;
+  }
+}
+
+ion-card{
+  overflow: unset !important;
+}
+
+ion-card{
+  height: 110px;
+  width: 300px;
+}
+
+ion-icon{
+  margin: 5px;
+  color: #0D47A1;
+}
+
+ion-slides{
+  margin: 15px;
+  box-shadow: 0px 1px 10px rgba(98,140,255,0.5);
+  height: 200px;
+  width: 200px;
+  h1{
+    font-size: 20px;
+    color: #1976D2;
+  }
+}
+
+.cont{
+  height: 450px;
+  width: 540px;
+  background: #1976D2 ;
+  background: linear-gradient(90deg,#68a4e0 0%, #1976D2 100%);
+  box-shadow: 0px 1px 10px rgba(98,140,255,0.5);
+  transform: rotate(-15deg);
+  border-radius: 10px 10px 10px 50px;
+  margin-left: -50px;
+  margin-top: -130px;
 }
