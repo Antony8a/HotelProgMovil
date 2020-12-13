@@ -1,9 +1,89 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>recepcionistaRegistro</ion-title>
+    <ion-buttons id="back" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro de recepcionista</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list class="from">
+    
+    <form #formulario="ngForm" (ngSubmit)="template()">
+      <ion-item>
+        <ion-label position="floating">Identificacion</ion-label>
+        <ion-input type="text" name="identificacion" [(ngModel)]="_identificacion" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="_nombre" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Edad</ion-label>
+        <ion-input type="number" name="edad" [(ngModel)]="_edad" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Sexo</ion-label>
+        <ion-input type="text" name="sexo" [(ngModel)]="_sexo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Direccion</ion-label>
+        <ion-input type="text" name="street" [(ngModel)]="_direccion" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Celular</ion-label>
+        <ion-input type="text" name="telephone" [(ngModel)]="_celular" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="_correo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" name="user" [(ngModel)]="_usuario" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Contraseña</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="_password" required></ion-input>
+      </ion-item>
+      <ion-button expand="full" fill="outline" type="submit">
+        Agregar Recepcionista
+        <ion-icon   slot="end" name="add-circle"></ion-icon>
+      </ion-button>
+    </form>
+    
+  </ion-list>
+  
+  <ion-list>
+    <h3 style="margin: 5%;">Recepcionistas registrados</h3>
+    <ion-item *ngFor="let recepcionista of recepcionistas">
+      <ion-label >
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>{{recepcionista.identificacion}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{recepcionista.nombre}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{recepcionista.edad}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div><ion-button expand="full" fill="outline" (click)="traerRecepcionistaSeleccionado(recepcionista.identificacion)">Ver</ion-button></div>
+            </ion-col>
+            <ion-col>
+              <div><ion-button expand="full" fill="outline" (click)="presentAlertPrompt(recepcionista)">Update</ion-button></div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
 
 </ion-content>

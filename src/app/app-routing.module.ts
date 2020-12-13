@@ -42,7 +42,24 @@ const routes: Routes = [
   {
     path: 'cliente-consulta',
     loadChildren: () => import('./cliente/cliente-consulta/cliente-consulta.module').then( m => m.ClienteConsultaPageModule)
+  },
+  {
+    path: 'recepcionista-registro',
+    loadChildren: () => import('./recepcionista/recepcionista-registro/recepcionista-registro.module').then( m => m.RecepcionistaRegistroPageModule)
+  },
+  {
+    path: 'recepcionista-consulta',
+    loadChildren: () => import('./recepcionista/recepcionista-consulta/recepcionista-consulta.module').then( m => m.RecepcionistaConsultaPageModule)
+  },  {
+    path: 'recepcionista-state',
+    loadChildren: () => import('./recepcionista/recepcionista-state/recepcionista-state.module').then( m => m.RecepcionistaStatePageModule)
+  },
+  {
+    path: 'cliente-state',
+    loadChildren: () => import('./cliente/cliente-state/cliente-state.module').then( m => m.ClienteStatePageModule)
   }
+
+
 ];
 
 @NgModule({
