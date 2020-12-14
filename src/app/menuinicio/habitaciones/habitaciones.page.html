@@ -8,15 +8,62 @@
 </ion-header>
 
 <ion-content>
-  <h2>Fecha inicio</h2>
-  <ion-item>
-    <ion-label position="floating">MM/DD/YYYY</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
-  </ion-item>
-  <h2>Fecha fin</h2>
-  <ion-item>
-    <ion-label position="floating">MM/DD/YYYY</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" size-md>
+        <ion-item>Fecha Inicio</ion-item>
+      </ion-col>
+      <ion-col size="8" size-md>
+        <ion-item>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994" max="2100" [(ngModel)]="prueba1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" size-md>
+        <ion-item>Fecha Fin</ion-item>
+      </ion-col>
+      <ion-col size="8" size-md>
+        <ion-item>
+          <ion-datetime displayFormat="DD/MM/YYYY" min="1994" max="2100" [(ngModel)]="prueba2"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="asignarFechaLabel()">Consultar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-label>Inicio: {{prueba1a}}</ion-label><br>
+  <ion-label>Fin: {{prueba2a}}</ion-label>
+
+  <ion-card>
+    <ion-card-content>
+     <ion-grid>
+       <ion-row>
+         <ion-col size="4" size-md><ion-item>Tipo:</ion-item></ion-col>
+         <ion-col size="8" size-md></ion-col>
+       </ion-row>
+       <ion-row>
+        <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
+        <ion-col size="8" size-md></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
+        <ion-col size="8" size-md></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
+        <ion-col size="8" size-md></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
+        <ion-col size="8" size-md></ion-col>
+      </ion-row>
+     </ion-grid>
+    </ion-card-content>
+  </ion-card>
   
 </ion-content>

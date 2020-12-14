@@ -57,6 +57,18 @@ const routes: Routes = [
   {
     path: 'cliente-state',
     loadChildren: () => import('./cliente/cliente-state/cliente-state.module').then( m => m.ClienteStatePageModule)
+  },
+  {
+    path: 'habitacion-consulta',
+    loadChildren: () => import('./habitacion/habitacion-consulta/habitacion-consulta.module').then( m => m.HabitacionConsultaPageModule)
+  },
+  {
+    path: 'habitacion-registro',
+    loadChildren: () => import('./habitacion/habitacion-registro/habitacion-registro.module').then( m => m.HabitacionRegistroPageModule)
+  },
+  {
+    path: 'habitacion-state',
+    loadChildren: () => import('./habitacion/habitacion-state/habitacion-state.module').then( m => m.HabitacionStatePageModule)
   }
 
 
