@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'recepcionista-consulta',
     loadChildren: () => import('./recepcionista/recepcionista-consulta/recepcionista-consulta.module').then( m => m.RecepcionistaConsultaPageModule)
-  },  {
+  },
+  {
     path: 'recepcionista-state',
     loadChildren: () => import('./recepcionista/recepcionista-state/recepcionista-state.module').then( m => m.RecepcionistaStatePageModule)
   },

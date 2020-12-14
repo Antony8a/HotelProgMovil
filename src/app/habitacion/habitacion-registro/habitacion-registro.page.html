@@ -1,9 +1,60 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>habitacionRegistro</ion-title>
+    <ion-buttons id="back" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro de habitaciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-list class="from">    
+    <form #formulario="ngForm" (ngSubmit)="template()">
+      <ion-item>
+        <ion-label position="floating">Codigo de habitacion</ion-label>
+        <ion-input type="text" name="idHabitacion" [(ngModel)]="_idHabitacion" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select name="tipo" value="Doble" okText="Ok" cancelText="Cancelar" [(ngModel)]="_tipo" required>
+          <ion-select-option value="Doble">Doble</ion-select-option>
+          <ion-select-option value="Para pareja">Para pareja</ion-select-option>
+          <ion-select-option value="King">King</ion-select-option>
+          <ion-select-option value="Sencilla">Sencilla</ion-select-option>
+          <ion-select-option value="Triple">Triple</ion-select-option>
+          <ion-select-option value="Simple+">Simple+</ion-select-option>
+          <ion-select-option value="Ligth">Ligth</ion-select-option>
+          <ion-select-option value="Soltero">Soltero</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input type="number" name="precio" [(ngModel)]="_precio" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input type="text" name="descripcion" [(ngModel)]="_descripcion" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Aire</ion-label>
+        <ion-select name="aire" value="si" [(ngModel)]="_aire"  okText="Ok" cancelText="Cancelar" required>
+          <ion-select-option value="si">si</ion-select-option>
+          <ion-select-option value="no">no</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Ventilador</ion-label>
+        <ion-select name="ventilador"value="si" [(ngModel)]="_ventilador" okText="Ok" cancelText="Cancelar" required>
+          <ion-select-option value="si">si</ion-select-option>
+          <ion-select-option value="no">no</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="full" fill="outline" type="submit">
+        Agregar habitacion
+        <ion-icon   slot="end" name="add-circle"></ion-icon>
+      </ion-button>
+    </form>
+    
+  </ion-list>
 </ion-content>

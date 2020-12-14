@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>habitacionState</ion-title>
+    <ion-buttons id="back" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestion de habitaciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="slides ion-margin-bottom">
+    <ion-card>
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content >
+        <div class="centrar">
+
+          <div class="item44" [routerLink]="['/habitacion-registro']">
+            <div class="main">
+              <img src="/assets/icon/Cliente.png">
+            </div>
+            <ion-card-title class="ion-margin-bottom">Registro</ion-card-title>
+          </div>
+          <div class="item444" [routerLink]="['/habitacion-consulta']">
+            <div class="main">
+              <img src="/assets/icon/secretaria.png">
+            </div>
+            <ion-card-title class="ion-margin-bottom">Consulta</ion-card-title>
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  
+</div>
 
 </ion-content>

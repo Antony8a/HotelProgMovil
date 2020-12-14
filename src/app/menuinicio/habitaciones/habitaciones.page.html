@@ -36,34 +36,33 @@
     </ion-row>
   </ion-grid>
 
-  <ion-label>Inicio: {{prueba1a}}</ion-label><br>
-  <ion-label>Fin: {{prueba2a}}</ion-label>
+  <ion-item *ngFor="let habitacion of habitaciones">
+    <ion-card>
+      <ion-card-content>
+       <ion-grid>
+         <ion-row>
+           <ion-col size="4" size-md><ion-item>Tipo:</ion-item></ion-col>
+           <ion-col size="8" size-md><ion-item>{{habitacion.tipo}}</ion-item></ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
+          <ion-col size="8" size-md><ion-item>{{habitacion.precio}}</ion-item></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
+          <ion-col size="8" size-md><ion-item>{{habitacion.descripcion}}</ion-item></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
+          <ion-col size="8" size-md><ion-item>{{habitacion.aire}}</ion-item></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
+          <ion-col size="8" size-md><ion-item>{{habitacion.ventilador}}</ion-item></ion-col>
+        </ion-row>
+       </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
 
-  <ion-card>
-    <ion-card-content>
-     <ion-grid>
-       <ion-row>
-         <ion-col size="4" size-md><ion-item>Tipo:</ion-item></ion-col>
-         <ion-col size="8" size-md></ion-col>
-       </ion-row>
-       <ion-row>
-        <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
-        <ion-col size="8" size-md></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
-        <ion-col size="8" size-md></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
-        <ion-col size="8" size-md></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
-        <ion-col size="8" size-md></ion-col>
-      </ion-row>
-     </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  
 </ion-content>
