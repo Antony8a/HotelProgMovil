@@ -69,6 +69,10 @@ const routes: Routes = [
   {
     path: 'habitacion-state',
     loadChildren: () => import('./habitacion/habitacion-state/habitacion-state.module').then( m => m.HabitacionStatePageModule)
+  },
+  {
+    path: 'reserva-consulta',
+    loadChildren: () => import('./reserva/reserva-consulta/reserva-consulta.module').then( m => m.ReservaConsultaPageModule)
   }
 
 
