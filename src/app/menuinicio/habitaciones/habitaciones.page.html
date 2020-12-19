@@ -42,30 +42,10 @@
       <ion-card-header>
         <ion-card-subtitle>Habitacion de tipo {{habitacion.tipo}}</ion-card-subtitle>
         <ion-card-title>N° {{habitacion.idHabitacion}}</ion-card-title>
+        <ion-button expand="full" fill="outline"(click)="asignarFechaLabel()">Reservar</ion-button>
       </ion-card-header>
       <ion-card-content>
-        Esta habitacion de tipo {{habitacion.tipo}} cuenta con un precio de {{habitacion.precio}}k y y es descrita como {{habitacion.descripcion}}
-        <!--
 
-          <ion-grid>
-            <ion-row>
-              <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
-              <ion-col size="8" size-md><ion-item>{{habitacion.precio}}</ion-item></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
-              <ion-col size="8" size-md><ion-item>{{habitacion.descripcion}}</ion-item></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
-              <ion-col size="8" size-md><ion-item>{{habitacion.aire}}</ion-item></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
-              <ion-col size="8" size-md><ion-item>{{habitacion.ventilador}}</ion-item></ion-col>
-            </ion-row>
-          </ion-grid>
-        -->
       </ion-card-content>
     </ion-card>
   </ion-item>

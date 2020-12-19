@@ -127,7 +127,7 @@ export class ClienteConsultaPage implements OnInit {
         },
         {
           name: 'Password',
-          type: 'text',
+          type: 'password',
           value: clientex.password,
           placeholder: 'password'
         },
@@ -153,7 +153,7 @@ export class ClienteConsultaPage implements OnInit {
             this.cliente.celular = data.Celular;
             this.cliente.usuario = data.Usuario;
             console.log(this.cliente);
-            this.update();
+            this.update(this.cliente);
             this.confirmaActualizacion();
             this.ngOnInit();
           }
@@ -163,8 +163,8 @@ export class ClienteConsultaPage implements OnInit {
     await alert.present();
   }
 
-  update(){
-    this.clienteService.put(this.cliente).subscribe(p => {});
+  update(clienteu:Cliente){
+    this.clienteService.put(clienteu).subscribe(p => {});
   }
 
   async confirmaActualizacion() {
@@ -175,5 +175,5 @@ export class ClienteConsultaPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
-  }
+  }  
 }
