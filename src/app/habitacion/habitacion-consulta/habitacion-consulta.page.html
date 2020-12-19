@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>habitacionConsulta</ion-title>
+    <ion-buttons id="back" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Consulta de habitaciones</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content>  
+  <ion-list>
+    <h3 style="margin: 5%;">Habitaciones registradas</h3>
+    <ion-item *ngFor="let habitacion of habitaciones">
+      <ion-label >
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>{{habitacion.idHabitacion}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{habitacion.tipo}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{habitacion.precio}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div><ion-button expand="full" fill="outline" (click)="traerHabiatcionSeleccionada(habitacion.idHabitacion)">Ver</ion-button></div>
+            </ion-col>
+            <ion-col>
+              <div><ion-button expand="full" fill="outline" [routerLink]="['/habitacion-edita/', habitacion.idHabitacion]">Update</ion-button></div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
 </ion-content>

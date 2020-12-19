@@ -74,7 +74,12 @@ const routes: Routes = [
   {
     path: 'reserva-consulta',
     loadChildren: () => import('./reserva/reserva-consulta/reserva-consulta.module').then( m => m.ReservaConsultaPageModule)
+  },
+  {
+    path: 'habitacion-edita/:idhab',
+    loadChildren: () => import('./habitacion/habitacion-edita/habitacion-edita.module').then( m => m.HabitacionEditaPageModule)
   }
+
 
 
 ];
