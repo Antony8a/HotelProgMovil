@@ -10,20 +10,20 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="4" size-md>
-        <ion-item>Fecha Inicio</ion-item>
+      <ion-col size="5" size-md>
+        <ion-item>Fecha Inicio:</ion-item>
       </ion-col>
-      <ion-col size="8" size-md>
+      <ion-col size="5" size-md>
         <ion-item>
           <ion-datetime displayFormat="DD/MM/YYYY" min="1994" max="2100" [(ngModel)]="prueba1"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="4" size-md>
-        <ion-item>Fecha Fin</ion-item>
+      <ion-col size="5" size-md>
+        <ion-item>Fecha Fin:</ion-item>
       </ion-col>
-      <ion-col size="8" size-md>
+      <ion-col size="5" size-md>
         <ion-item>
           <ion-datetime displayFormat="DD/MM/YYYY" min="1994" max="2100" [(ngModel)]="prueba2"></ion-datetime>
         </ion-item>
@@ -38,29 +38,34 @@
 
   <ion-item *ngFor="let habitacion of habitaciones">
     <ion-card>
+      
+      <ion-card-header>
+        <ion-card-subtitle>Habitacion de tipo {{habitacion.tipo}}</ion-card-subtitle>
+        <ion-card-title>N° {{habitacion.idHabitacion}}</ion-card-title>
+      </ion-card-header>
       <ion-card-content>
-       <ion-grid>
-         <ion-row>
-           <ion-col size="4" size-md><ion-item>Tipo:</ion-item></ion-col>
-           <ion-col size="8" size-md><ion-item>{{habitacion.tipo}}</ion-item></ion-col>
-         </ion-row>
-         <ion-row>
-          <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
-          <ion-col size="8" size-md><ion-item>{{habitacion.precio}}</ion-item></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
-          <ion-col size="8" size-md><ion-item>{{habitacion.descripcion}}</ion-item></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
-          <ion-col size="8" size-md><ion-item>{{habitacion.aire}}</ion-item></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
-          <ion-col size="8" size-md><ion-item>{{habitacion.ventilador}}</ion-item></ion-col>
-        </ion-row>
-       </ion-grid>
+        Esta habitacion de tipo {{habitacion.tipo}} cuenta con un precio de {{habitacion.precio}}k y y es descrita como {{habitacion.descripcion}}
+        <!--
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4" size-md><ion-item>Precio:</ion-item></ion-col>
+              <ion-col size="8" size-md><ion-item>{{habitacion.precio}}</ion-item></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4" size-md><ion-item>Descripcion:</ion-item></ion-col>
+              <ion-col size="8" size-md><ion-item>{{habitacion.descripcion}}</ion-item></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4" size-md><ion-item>Aire:</ion-item></ion-col>
+              <ion-col size="8" size-md><ion-item>{{habitacion.aire}}</ion-item></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4" size-md><ion-item>Ventilador:</ion-item></ion-col>
+              <ion-col size="8" size-md><ion-item>{{habitacion.ventilador}}</ion-item></ion-col>
+            </ion-row>
+          </ion-grid>
+        -->
       </ion-card-content>
     </ion-card>
   </ion-item>

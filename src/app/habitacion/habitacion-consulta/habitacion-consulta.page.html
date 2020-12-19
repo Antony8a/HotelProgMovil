@@ -10,29 +10,30 @@
   <ion-list>
     <h3 style="margin: 5%;">Habitaciones registradas</h3>
     <ion-item *ngFor="let habitacion of habitaciones">
-      <ion-label >
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <div>{{habitacion.idHabitacion}}</div>
-            </ion-col>
-            <ion-col>
-              <div>{{habitacion.tipo}}</div>
-            </ion-col>
-            <ion-col>
-              <div>{{habitacion.precio}}</div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <div><ion-button expand="full" fill="outline" (click)="traerHabiatcionSeleccionada(habitacion.idHabitacion)">Ver</ion-button></div>
-            </ion-col>
-            <ion-col>
-              <div><ion-button expand="full" fill="outline" [routerLink]="['/habitacion-edita/', habitacion.idHabitacion]">Update</ion-button></div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>  
-      </ion-label>
+      <!-- Sliding item with icon start options on end side -->
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
+            N°: {{habitacion.idHabitacion}} 
+            <h4>---------------</h4>
+            <p>Tipo: {{habitacion.tipo}}</p>
+          </ion-label>
+          
+          <ion-note slot="end">
+            Precio:{{habitacion.precio}}
+          </ion-note>
+        </ion-item>
+        <ion-item-options>
+          <ion-item-option (click)="traerHabiatcionSeleccionada(habitacion.idHabitacion)" color="danger">
+            <ion-icon slot="start" name="trash"></ion-icon>
+            Elimin
+          </ion-item-option>
+          <ion-item-option [routerLink]="['/habitacion-edita/', habitacion.idHabitacion]" color="secondary">
+            <ion-icon slot="start" name="create"></ion-icon>
+            Editar
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-item>
     
   </ion-list>
